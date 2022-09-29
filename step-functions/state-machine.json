@@ -1,0 +1,25 @@
+{
+  "Comment": "Spring Cloud AWS Sample Step Function State Machine",
+  "StartAt": "ProduceString",
+  "States": {
+    "ProduceString": {
+      "Type": "Task",
+      "End": true,
+      "TimeoutSeconds": 60,
+      "HeartbeatSeconds": 10,
+      "Resource": "arn:aws:states:::activity:red-appl-produce-string",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.error",
+          "Next": "failState"
+        }
+      ]
+    },
+    "failState": {
+      "Type": "Fail"
+    }
+  }
+}

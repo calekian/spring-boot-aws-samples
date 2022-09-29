@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset
+    xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 https://www.mojohaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd"
+    comparisonMethod="maven">
+
+    <!-- Ignore dependencies with (case-insensitive) alpha, beta, RC/CR -->
+    <!-- org.codehaus.mojo:versions-maven-plugin implements some of its own
+         comparison logic, selected via the comparisonMethod attribute on some
+         XML elements here (including the root) for the purpose of deciding
+         whether a newer version is available.
+         However, when it comes down to resolving POM version ranges in the
+         reactor it will be Maven's ComparableVersion rules that will be used. -->
+    <!-- https://www.mojohaus.org/versions-maven-plugin/index.html -->
+    <!-- https://www.mojohaus.org/versions-maven-plugin/version-rules.html -->
+    <!-- https://github.com/mojohaus/versions-maven-plugin/tree/master/src/main/java/org/codehaus/mojo/versions/ordering -->
+    <!-- https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java -->
+    <ignoreVersions>
+        <ignoreVersion type="regex">.*(?i:alpha).*</ignoreVersion>
+        <ignoreVersion type="regex">.*(?i:beta).*</ignoreVersion>
+        <ignoreVersion type="regex">.*(?i:rc|cr).*</ignoreVersion>
+    </ignoreVersions>
+</ruleset>
