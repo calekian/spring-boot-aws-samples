@@ -5,7 +5,7 @@
     <parent>
         <groupId>red.appl</groupId>
         <artifactId>spring-boot-aws-samples</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
     <artifactId>step-functions</artifactId>
     <packaging>jar</packaging>
