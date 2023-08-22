@@ -24,6 +24,7 @@
         <checkstyle.enforcing>true</checkstyle.enforcing>
 
         <java.version>17</java.version>
+        <!-- https://docs.sonarsource.com/sonarqube/8.9/analyzing-source-code/analysis-parameters/ -->
         <sonar.organization>calekian-github</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
